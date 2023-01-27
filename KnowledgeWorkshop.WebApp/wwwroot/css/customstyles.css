@@ -1,0 +1,63 @@
+﻿.box {
+    background: #fef2c0;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    border-width: 15px 15px 15px 15px;
+    border-style: solid;
+    border-color: #fbffeb;
+}
+
+.products {
+    background: #fcdec4;
+    position: absolute;
+    top: 150px;
+    right: 0px;
+    bottom: 0px;
+    left: 300px;
+    border-width: 25px 25px 25px 25px;
+    border-style: solid;
+    border-color: #fbffeb;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.product {
+    padding: 15px;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+}
+
+.price {
+    color: grey;
+    font-size: 22px;
+}
+
+.card button {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+}
+
+.card button:hover {
+    opacity: 0.7;
+}
+
+.m-10 {
+    margin: 10px;
+}

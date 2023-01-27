@@ -1,0 +1,51 @@
+﻿<script type="text/javascript">
+    function requestData(dataUrl)
+    {
+        $(document).ready(function ()
+        {
+            $.ajax(
+            {
+                type: "GET",
+                url: '@Url.Action("GetJsonData", "Home")',
+                data: { dataUrl: dataUrl },
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (response)
+                {6
+                    $("#list").empty();
+                    var listItems = "";
+                    var i;
+                    for (i = 0; i < response.length; ++i)
+                    {
+                        listItems += "<div class='product'><div class='card'><h2 style='text-align:center;'>" + response[i]["name"] + "</h2><img src='/img/" + response[i]["name"] + ".png'" + "alt='img' style='width:100%'><h1>" + response[i]["brand"] + "</h1><p class='price'>₺" + response[i]["price"] + "</p><p>" + response[i]["description"] + "</p><p><button>Add to Cart</button></p></div></div>"
+                    }
+                    $("#list").append(listItems);
+                },
+                failure: function (response)
+                {
+                    alert(response.responseText);
+                    alert("Failure");
+                },
+                error: function (response)
+                {
+                    alert(response);
+                    alert("Error");
+                }
+            });
+        });
+    }
+</script>
+
+<script type="text/javascript">
+    requestData('products/getall');
+</script>
+
+<div class="box">
+    <div class="products" id="list">
+    </div>
+    <div class="m-10">
+        <button class="custom-button" role="button" onclick="requestData('products/getall')">Tüm Ürünler</button>
+        <button class="custom-button" role="button" onclick="requestData('products/getbycategory/ed003c8e-bbbd-4b95-9183-279c82fa3217')">Laptop</button>
+        <button class="custom-button" role="button" onclick="requestData('products/getbycategory/076f4c70-37c5-4f04-b030-1c6bb4937f0c')">Masaüstü</button>
+    </div>
+</div>
